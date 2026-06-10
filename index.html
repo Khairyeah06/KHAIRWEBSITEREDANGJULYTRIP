@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redang Trip 2026 — RM155 Package</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f0f7f4;
+            --bg-secondary: #e8f4f0;
+            --surface: rgba(255, 255, 255, 0.65);
+            --surface-solid: #ffffff;
+            --text: #1a2e2a;
+            --text-secondary: #4a6b63;
+            --text-muted: #7a9a90;
+            --border: rgba(26, 46, 42, 0.08);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+            --accent: #0d9488;
+            --accent-glow: rgba(13, 148, 136, 0.25);
+            --coral: #f97316;
+            --coral-glow: rgba(249, 115, 22, 0.3);
+            --green: #10b981;
+            --green-bg: rgba(16, 185, 129, 0.12);
+            --orange: #f59e0b;
+            --orange-bg: rgba(245, 158, 11, 0.12);
+            --gradient-hero: linear-gradient(135deg, #e0f7f3 0%, #c5f0e8 25%, #fef9f0 50%, #ffe8d6 75%, #e8f4f8 100%);
+            --glass-blur: blur(18px);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --radius-xs: 8px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --nav-height: 70px;
+            --bubble-1: rgba(13, 148, 136, 0.08);
+            --bubble-2: rgba(249, 115, 22, 0.06);
+            --bubble-3: rgba(16, 185, 129, 0.07);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a1a18;
+            --bg-secondary: #0f2220;
+            --surface: rgba(20, 40, 38, 0.7);
+            --surface-solid: #142826;
+            --text: #e2f0ec;
+            --text-secondary: #b0ccc4;
+            --text-muted: #7aa398;
+            --border: rgba(200, 220, 215, 0.1);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45);
+            --accent-glow: rgba(20, 184, 166, 0.35);
+            --coral-glow: rgba(251, 146, 60, 0.35);
+            --green-bg: rgba(16, 185, 129, 0.2);
+            --orange-bg: rgba(245, 158, 11, 0.2);
+            --gradient-hero: linear-gradient(135deg, #0a1f1c 0%, #0d2824 25%, #1a1815 50%, #1a1410 75%, #0d1f24 100%);
+            --bubble-1: rgba(20, 184, 166, 0.06);
+            --bubble-2: rgba(251, 146, 60, 0.05);
+            --bubble-3: rgba(16, 185, 129, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.5s ease, color 0.4s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Animated background orbs */
+        .bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: floatOrb 18s infinite ease-in-out;
+        }
+        .bg-orb:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: var(--bubble-1);
+            top: -10%;
+            left: -8%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+        .bg-orb:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: var(--bubble-2);
+            bottom: -12%;
+            right: -6%;
+            animation-delay: -6s;
+            animation-duration: 22s;
+        }
+        .bg-orb:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: var(--bubble-3);
+            top: 50%;
+            left: 50%;
+            animation-delay: -11s;
+            animation-duration: 24s;
+        }
+        @keyframes floatOrb {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(8%, -6%) scale(1.08);
+            }
+            50% {
+                transform: translate(-4%, 5%) scale(0.94);
+            }
+            75% {
+                transform: translate(-7%, -3%) scale(1.05);
+            }
+        }
+
+        /* Main container */
+        .main-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 10px 10px 10px 24px;
+            margin-top: 16px;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.4px;
+            color: var(--accent);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo span {
+            font-size: 1.6rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            white-space: nowrap;
+            letter-spacing: -0.2px;
+        }
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface-solid);
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover {
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 6px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent), #f97316, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        .hero-cta {
+            display: inline-flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all var(--transition);
+            letter-spacing: -0.3px;
+            font-family: var(--font-body);
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 6px 24px var(--accent-glow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+        .btn-outline {
+            background: var(--surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            color: var(--text);
+            box-shadow: var(--shadow);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            border-radius: 50px;
+        }
+        .btn-confirm {
+            background: var(--green);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+        }
+        .btn-confirm:hover {
+            filter: brightness(1.15);
+            transform: scale(1.04);
+        }
+        .btn-vote-a {
+            background: #0d9488;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.3);
+        }
+        .btn-vote-b {
+            background: #f97316;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
+        }
+        .btn-vote-a:hover,
+        .btn-vote-b:hover {
+            transform: scale(1.04);
+            filter: brightness(1.12);
+        }
+
+        /* Countdown */
+        .countdown-section {
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+        .countdown-section h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .countdown-grid {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: var(--surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px 16px;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+        }
+        .countdown-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        .countdown-num {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.6rem;
+            letter-spacing: -1px;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+        .section-wrap {
+            margin-top: 40px;
+            padding: 28px;
+            background: var(--surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+        }
+        .section-wrap:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            margin: 16px 0 24px;
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        .progress-bar {
+            height: 10px;
+            border-radius: 50px;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #10b981, #0d9488);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Participant cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+        .participant-card {
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .participant-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        .participant-card.confirmed {
+            border-left: 4px solid #10b981;
+            background: var(--green-bg);
+        }
+        .participant-card.pending {
+            border-left: 4px solid #f59e0b;
+            background: var(--orange-bg);
+        }
+        .participant-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            font-family: var(--font-display);
+        }
+        .confirmed .participant-avatar {
+            background: #10b981;
+            color: #fff;
+        }
+        .pending .participant-avatar {
+            background: #f59e0b;
+            color: #fff;
+        }
+        .participant-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .participant-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .participant-status {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .confirmed .participant-status {
+            color: #10b981;
+        }
+        .pending .participant-status {
+            color: #f59e0b;
+        }
+        .participant-card .btn-sm {
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            padding: 6px 12px;
+        }
+
+        /* Itinerary timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin-top: 16px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+            border-radius: 1px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 14px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+            border: 2px solid var(--surface-solid);
+        }
+        .timeline-day {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 2px;
+            font-family: var(--font-display);
+        }
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Cost cards */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .cost-item {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xs);
+            padding: 14px 12px;
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .cost-item:hover {
+            background: var(--surface-solid);
+            box-shadow: var(--shadow);
+        }
+        .cost-amount {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        .cost-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+        .cost-total {
+            margin-top: 16px;
+            padding: 16px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: var(--font-display);
+            letter-spacing: -0.3px;
+            box-shadow: 0 8px 28px var(--accent-glow);
+        }
+
+        /* Voting */
+        .vote-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .vote-card {
+            background: var(--surface-solid);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition);
+            position: relative;
+        }
+        .vote-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .vote-card.selected-a {
+            border-color: #0d9488;
+            box-shadow: 0 0 28px rgba(13, 148, 136, 0.25);
+        }
+        .vote-card.selected-b {
+            border-color: #f97316;
+            box-shadow: 0 0 28px rgba(249, 115, 22, 0.25);
+        }
+        .vote-card h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+        .vote-card .vote-price {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--accent);
+            font-family: var(--font-display);
+        }
+        .vote-card .vote-list {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            list-style: none;
+            padding: 0;
+        }
+        .vote-card .vote-list li {
+            padding: 2px 0;
+        }
+        .vote-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+        .badge-a {
+            background: rgba(13, 148, 136, 0.15);
+            color: #0d9488;
+        }
+        .badge-b {
+            background: rgba(249, 115, 22, 0.15);
+            color: #f97316;
+        }
+
+        /* Gallery placeholder */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .gallery-placeholder {
+            aspect-ratio: 4/3;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-muted);
+            border: 2px dashed var(--border);
+            transition: all var(--transition);
+            cursor: default;
+        }
+        .gallery-placeholder:hover {
+            border-color: var(--accent);
+            background: var(--surface-solid);
+            box-shadow: var(--shadow);
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .toast {
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xs);
+            padding: 14px 20px;
+            box-shadow: var(--shadow-lg);
+            font-weight: 500;
+            font-size: 0.85rem;
+            animation: slideIn 0.4s ease forwards, fadeOut 0.4s ease 2.2s forwards;
+            max-width: 380px;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Admin section */
+        .admin-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-top: 12px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            max-height: 250px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 2px;
+                padding-top: 8px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .vote-options {
+                grid-template-columns: 1fr;
+            }
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .cost-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .countdown-num {
+                font-size: 1.8rem;
+            }
+            .countdown-item {
+                min-width: 60px;
+                padding: 12px 10px;
+            }
+            .section-wrap {
+                padding: 18px;
+            }
+            .timeline {
+                padding-left: 20px;
+            }
+            .timeline::before {
+                left: 6px;
+            }
+            .timeline-item::before {
+                left: -18px;
+                width: 8px;
+                height: 8px;
+            }
+        }
+        @media (max-width: 400px) {
+            .cards-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .participant-card {
+                padding: 12px 10px;
+                gap: 8px;
+            }
+            .participant-name {
+                font-size: 0.78rem;
+            }
+            .countdown-grid {
+                gap: 6px;
+            }
+            .countdown-item {
+                min-width: 55px;
+                padding: 10px 6px;
+            }
+            .countdown-num {
+                font-size: 1.4rem;
+            }
+            .btn {
+                padding: 10px 18px;
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background orbs -->
+    <div class="bg-orbs">
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Main wrapper -->
+    <div class="main-wrap">
+        <!-- Navigation -->
+        <nav class="nav" id="navbar">
+            <div class="nav-logo"><span>🏝️</span> Redang '26</div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Home</a>
+                <a href="#participants">Crew</a>
+                <a href="#optionA">Itinerary 1</a>
+                <a href="#optionB">Itinerary 2</a>
+                <a href="#voting">Choose</a>
+                <a href="#cost">Cost</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓</button>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-badge">📅 3–5 July 2026</div>
+            <h1>Redang Island<br>Trip 2026</h1>
+            <p>Trip kali ni fokus pada <strong>one package sahaja RM155</strong> dengan 2 itinerary pilihan, 2 malam homestay dekat darat, dan snorkeling Redang selepas solat Jumaat di tanah besar.</p>
+            <div class="hero-cta">
+                <a href="#participants" class="btn btn-primary">👥 See The Crew</a>
+                <a href="#voting" class="btn btn-outline">📋 Choose Itinerary</a>
+            </div>
+        </section>
+
+        <!-- Countdown -->
+        <section class="countdown-section">
+            <h3>⏳ Countdown to Departure</h3>
+            <div class="countdown-grid" id="countdownGrid">
+                <div class="countdown-item"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">Days</div></div>
+                <div class="countdown-item"><div class="countdown-num" id="cd-hours">--</div><div class="countdown-label">Hours</div></div>
+                <div class="countdown-item"><div class="countdown-num" id="cd-mins">--</div><div class="countdown-label">Minutes</div></div>
+                <div class="countdown-item"><div class="countdown-num" id="cd-secs">--</div><div class="countdown-label">Seconds</div></div>
+            </div>
+        </section>
+
+        <!-- Participants -->
+        <section class="section-wrap" id="participants">
+            <h2 class="section-title">👥 The Crew</h2>
+            <p class="section-subtitle">Tap <strong>"Confirm Join"</strong> on pending cards to update status in real-time.</p>
+            <div style="margin: 10px 0 8px; padding: 12px 14px; background: var(--green-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary);">
+                <strong>Confirmed 5 orang:</strong> Eimad Turkey, Khair, Amin, Danial, FD
+            </div>
+            <div class="progress-wrap">
+                <div class="progress-info"><span>Confirmed</span><span id="progressText">5 / 7</span></div>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 71%;"></div></div>
+            </div>
+            <div class="cards-grid" id="participantsGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Option A -->
+        <section class="section-wrap" id="optionA">
+            <h2 class="section-title">🛏️ Itinerary 1 — 2 Malam Homestay (Mainland)</h2>
+            <p class="section-subtitle">Pilihan paling sesuai untuk yang nak solat Jumaat dulu di darat, then terus enjoy Redang pada hari Sabtu.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-day">📅 3 July 2026 (Friday)</div>
+                    <div class="timeline-desc">Bertolak awal pagi dari KL → singgah rehat & <strong>solat Jumaat di tanah besar</strong> → check-in homestay → dinner → free & easy malam pertama 🌙</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-day">📅 4 July 2026 (Saturday)</div>
+                    <div class="timeline-desc">Sarapan → ke jeti (ada surau & toilet) → bot ke Redang → <strong>3 kali makan</strong> → snorkeling 7 checkpoint → balik homestay malam kedua 🏡🤿</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-day">📅 5 July 2026 (Sunday)</div>
+                    <div class="timeline-desc">Breakfast → check-out homestay → balik ke KL dengan singgah makan / rehat ikut keadaan semasa 🚗</div>
+                </div>
+            </div>
+            <div style="margin-top:16px;font-weight:700;color:var(--accent);font-family:var(--font-display);font-size:1.2rem;">Package: RM155 / person</div>
+            <div style="margin-top:10px;font-size:0.92rem;color:var(--text-secondary);line-height:1.6;">
+                Termasuk: 3 kali makan, free tiket taman laut, unlimited drink atas bot, 7 snorkeling checkpoint, bonus Redang Village Tour, dan 2 malam homestay di darat.
+            </div>
+        </section>
+
+        <!-- Option B -->
+        <section class="section-wrap" id="optionB">
+            <h2 class="section-title">🌊 Itinerary 2 — 2 Malam Homestay (Mainland)</h2>
+            <p class="section-subtitle">Versi lebih santai untuk group yang nak fokus Redang trip tanpa rushing, tetap tak masuk Redang pada hari Jumaat.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-day">📅 3 July 2026 (Friday)</div>
+                    <div class="timeline-desc">Bertolak dari KL → sampai Terengganu → <strong>solat Jumaat di darat</strong> → check-in homestay → makan malam → rest malam pertama 🌙</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-day">📅 4 July 2026 (Saturday)</div>
+                    <div class="timeline-desc">Sarapan pagi → jeti → Redang snorkeling trip → Little Maldives, Water Confidence, Nemo Point, Turtle Bay, Teluk Dalam Beach, Coral Point, Fish Garden → bonus Redang Village Tour 🤿</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-day">📅 5 July 2026 (Sunday)</div>
+                    <div class="timeline-desc">Breakfast → check-out homestay → perjalanan balik ke KL 🚗</div>
+                </div>
+            </div>
+            <div style="margin-top:16px;font-weight:700;color:var(--accent);font-family:var(--font-display);font-size:1.2rem;">Package: RM155 / person</div>
+            <div style="margin-top:10px;font-size:0.92rem;color:var(--text-secondary);line-height:1.6;">
+                Sama-sama dapat 3 kali makan, tiket taman laut, unlimited drink atas bot, dan 2 malam homestay dekat darat.
+            </div>
+        </section>
+
+        <!-- Voting -->
+        <section class="section-wrap" id="voting">
+            <h2 class="section-title">📋 Pilih Itinerary</h2>
+            <p class="section-subtitle">Kedua-dua pilihan harga sama: RM155. Pilih itinerary yang paling sesuai untuk group.</p>
+            <div style="margin-bottom:16px;">
+                <label for="voterSelect" style="font-weight:600;font-size:0.85rem;display:block;margin-bottom:6px;">I am:</label>
+                <select id="voterSelect" style="padding:10px 14px;border-radius:50px;border:1px solid var(--border);background:var(--surface-solid);color:var(--text);font-family:var(--font-body);font-size:0.9rem;width:100%;max-width:300px;cursor:pointer;">
+                    <option value="">— Pilih nama —</option>
+<option value="khair">Khair</option>
+<option value="eimad">Eimad Turkey</option>
+<option value="amin">Amin</option>
+<option value="danial">Danial</option>
+<option value="fd">FD</option>
+<option value="naqib">Naqib</option>
+<option value="ipang">Ipang</option>
+                </select>
+            </div>
+            <div class="vote-options">
+                <div class="vote-card" id="voteCardA" onclick="castVote('A')">
+                    <h4>🛏️ Itinerary 1</h4>
+                    <div class="vote-price">RM155</div>
+                    <ul class="vote-list"><li>2 malam homestay</li><li>Solat Jumaat di darat</li><li>Redang trip Sabtu</li></ul>
+                    <span class="vote-badge badge-a" id="voteCountA">0 votes</span>
+                </div>
+                <div class="vote-card" id="voteCardB" onclick="castVote('B')">
+                    <h4>🌊 Itinerary 2</h4>
+                    <div class="vote-price">RM155</div>
+                    <ul class="vote-list"><li>2 malam homestay</li><li>Redang snorkeling trip</li><li>Bonus Village Tour</li></ul>
+                    <span class="vote-badge badge-b" id="voteCountB">0 votes</span>
+                </div>
+            </div>
+            <div style="margin-top:14px;font-size:0.8rem;color:var(--text-muted);">
+                <strong>Itinerary 1:</strong> <span id="votersA">—</span><br>
+                <strong>Itinerary 2:</strong> <span id="votersB">—</span>
+            </div>
+        </section>
+
+        <!-- Cost Estimation -->
+        <section class="section-wrap" id="cost">
+            <h2 class="section-title">💰 Cost Estimation</h2>
+            <p class="section-subtitle">Untuk 5 orang confirm, kos homestay, BBQ, minyak, dan tol dibahagi sama rata.</p>
+            <div style="display:grid;grid-template-columns:1fr;gap:16px;">
+                <div>
+                    <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:8px;">📦 Package RM155 / pax</h4>
+                    <div class="cost-grid">
+                        <div class="cost-item"><div class="cost-amount">RM155</div><div class="cost-label">Package</div></div>
+                        <div class="cost-item"><div class="cost-amount">3x</div><div class="cost-label">Meals</div></div>
+                        <div class="cost-item"><div class="cost-amount">Free</div><div class="cost-label">Tiket Taman Laut</div></div>
+                        <div class="cost-item"><div class="cost-amount">Unlimited</div><div class="cost-label">Drink atas bot</div></div>
+                        <div class="cost-item"><div class="cost-amount">7</div><div class="cost-label">Snorkeling Stops</div></div>
+                        <div class="cost-item"><div class="cost-amount">Bonus</div><div class="cost-label">Village Tour</div></div>
+                    </div>
+                    <div style="margin-top:14px;padding:16px;background:var(--bg-secondary);border-radius:var(--radius-sm);line-height:1.7;color:var(--text-secondary);">
+                        <strong>Included:</strong> Little Maldives, Water Confidence, Nemo Point, Turtle Bay, Teluk Dalam Beach, Coral Point, Fish Garden, dan Redang Village Tour.
+                        <br><strong>Note:</strong> Jeti ada surau + toilet, dan <strong>tak masuk Redang pada hari Jumaat</strong> sebab solat Jumaat dibuat di darat.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:8px;">🧾 Tong Tong Cost (5 orang)</h4>
+                    <div class="cost-grid">
+                        <div class="cost-item"><div class="cost-amount">RM70</div><div class="cost-label">Homestay 2 Malam</div></div>
+                        <div class="cost-item"><div class="cost-amount">RM30</div><div class="cost-label">BBQ Tong Tong</div></div>
+                        <div class="cost-item"><div class="cost-amount">RM60</div><div class="cost-label">Minyak KL ↔ Terengganu</div></div>
+                        <div class="cost-item"><div class="cost-amount">RM12</div><div class="cost-label">Tol KL ↔ Terengganu</div></div>
+                        <div class="cost-item"><div class="cost-amount">5</div><div class="cost-label">Orang Share</div></div>
+                        <div class="cost-item"><div class="cost-amount">Anggaran</div><div class="cost-label">Total Kos</div></div>
+                    </div>
+                    <div class="cost-total" style="margin-top:16px;">Estimated total per person: RM327</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Placeholder -->
+        <section class="section-wrap" id="gallery">
+            <h2 class="section-title">📸 Gallery</h2>
+            <p class="section-subtitle">Photos coming soon. Drop your best Redang shots here!</p>
+            <div class="gallery-grid">
+                <div class="gallery-placeholder">🌅</div>
+                <div class="gallery-placeholder">🐠</div>
+                <div class="gallery-placeholder">🏖️</div>
+                <div class="gallery-placeholder">🔥</div>
+                <div class="gallery-placeholder">🤿</div>
+                <div class="gallery-placeholder">🌴</div>
+            </div>
+        </section>
+
+        <!-- Admin / Firebase Section -->
+        <section class="section-wrap" id="admin">
+            <h2 class="section-title">⚙️ Data Sync (Firebase Ready)</h2>
+            <p class="section-subtitle">Real-time database status. Currently using <strong>localStorage</strong> (Firebase config pending).</p>
+            <div class="admin-panel" id="adminPanel">Loading data...</div>
+            <button class="btn btn-outline btn-sm" style="margin-top:10px;" onclick="resetAllData()">🔄 Reset All Data</button>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align:center;padding:30px 0 10px;color:var(--text-muted);font-size:0.78rem;">
+            🏝️ Redang Trip 2026 · RM155 Package · Made with ❤️ for the crew
+        </footer>
+    </div>
+
+    <!-- Firebase SDKs (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js">
+    </script>
+
+    <script>
+        (function() {
+            // ==================== FIREBASE CONFIG ====================
+            // Fill in your Firebase config below. Leave empty to use localStorage.
+            const firebaseConfig = {
+                apiKey: "AIzaSyCSvwarS7cWSQD4tqUes-C80g7HaoTzlgM",
+                authDomain: "maintenance-tracker-2bbbe.firebaseapp.com",
+                databaseURL: "https://maintenance-tracker-2bbbe-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "maintenance-tracker-2bbbe",
+                storageBucket: "maintenance-tracker-2bbbe.firebasestorage.app",
+                messagingSenderId: "333034424822",
+                appId: "1:333034424822:web:959bed60ff1553734ddfd7"
+            };
+
+            let firebaseReady = false;
+            let db = null;
+            const DB_PATH = '/redangTrip2026';
+
+            // Try to initialize Firebase
+            if (firebaseConfig.apiKey && firebaseConfig.projectId) {
+                try {
+                    firebase.initializeApp(firebaseConfig);
+                    db = firebase.database();
+                    firebaseReady = true;
+                    console.log('✅ Firebase connected!');
+                } catch (e) {
+                    console.warn('⚠️ Firebase init failed, using localStorage:', e.message);
+                }
+            } else {
+                console.log('ℹ️ No Firebase config found — using localStorage.');
+            }
+
+            // ==================== DATA LAYER ====================
+            const STORAGE_KEY = 'redangTrip2026_data';
+
+            const defaultData = {
+                participants: {
+                    eimad: { id: 'eimad', name: 'Eimad Turkey', status: 'confirmed', vote: null },
+                    khair: { id: 'khair', name: 'Khair', status: 'confirmed', vote: null },
+                    amin: { id: 'amin', name: 'Amin', status: 'confirmed', vote: null },
+                    danial: { id: 'danial', name: 'Danial', status: 'confirmed', vote: null },
+                    fd: { id: 'fd', name: 'FD', status: 'confirmed', vote: null },
+                    naqib: { id: 'naqib', name: 'Naqib', status: 'pending', vote: null },
+                    ipang: { id: 'ipang', name: 'Ipang', status: 'pending', vote: null }
+                }
+            };
+
+            function loadLocalData() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) return JSON.parse(raw);
+                } catch (e) { /* fall through */ }
+                return JSON.parse(JSON.stringify(defaultData));
+            }
+
+            function saveLocalData(data) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                // Dispatch custom event for same-tab reactivity
+                window.dispatchEvent(new CustomEvent('tripDataUpdated', { detail: data }));
+            }
+
+            function getData(callback) {
+                if (firebaseReady && db) {
+                    db.ref(DB_PATH).once('value').then(snapshot => {
+                        const val = snapshot.val();
+                        if (val && val.participants) {
+                            callback(val);
+                        } else {
+                            // Seed Firebase with default data
+                            db.ref(DB_PATH).set(defaultData);
+                            callback(JSON.parse(JSON.stringify(defaultData)));
+                        }
+                    }).catch(() => {
+                        callback(loadLocalData());
+                    });
+                } else {
+                    callback(loadLocalData());
+                }
+            }
+
+            function updateParticipant(pid, updates) {
+                if (firebaseReady && db) {
+                    db.ref(`${DB_PATH}/participants/${pid}`).update(updates).catch(() => {
+                        // Fallback
+                        const data = loadLocalData();
+                        Object.assign(data.participants[pid], updates);
+                        saveLocalData(data);
+                    });
+                } else {
+                    const data = loadLocalData();
+                    if (data.participants[pid]) {
+                        Object.assign(data.participants[pid], updates);
+                        saveLocalData(data);
+                    }
+                }
+            }
+
+            function listenForChanges(callback) {
+                if (firebaseReady && db) {
+                    db.ref(DB_PATH).on('value', snapshot => {
+                        const val = snapshot.val();
+                        if (val) callback(val);
+                    });
+                } else {
+                    // Poll localStorage + listen for cross-tab changes
+                    window.addEventListener('storage', (e) => {
+                        if (e.key === STORAGE_KEY) {
+                            try { callback(JSON.parse(e.newValue)); } catch (err) {}
+                        }
+                    });
+                    window.addEventListener('tripDataUpdated', (e) => {
+                        callback(e.detail);
+                    });
+                    // Initial load
+                    callback(loadLocalData());
+                }
+            }
+
+            // ==================== APP STATE ====================
+            let appData = null;
+
+            function refreshUI(data) {
+                appData = data;
+                renderParticipants(data.participants);
+                updateProgress(data.participants);
+                updateVotingDisplay(data.participants);
+                updateAdminPanel(data);
+                populateVoterSelect(data.participants);
+            }
+
+            // ==================== RENDER FUNCTIONS ====================
+            function renderParticipants(participants) {
+                const grid = document.getElementById('participantsGrid');
+                const entries = Object.values(participants);
+                // Sort: confirmed first, then pending
+                entries.sort((a, b) => {
+                    if (a.status === 'confirmed' && b.status !== 'confirmed') return -1;
+                    if (a.status !== 'confirmed' && b.status === 'confirmed') return 1;
+                    return 0;
+                });
+
+                grid.innerHTML = entries.map(p => {
+                    const isConfirmed = p.status === 'confirmed';
+                    const statusClass = isConfirmed ? 'confirmed' : 'pending';
+                    const icon = isConfirmed ? '✔️' : '⏳';
+                    const statusText = isConfirmed ? 'Confirmed' : 'Pending';
+                    const initial = p.name.charAt(0).toUpperCase();
+                    const confirmBtn = !isConfirmed ?
+                        `<button class="btn btn-sm btn-confirm" onclick="confirmParticipant('${p.id}')" title="Confirm Join">Confirm</button>` :
+                        '';
+
+                    return `
+                <div class="participant-card ${statusClass}" data-pid="${p.id}">
+                  <div class="participant-avatar">${initial}</div>
+                  <div class="participant-info">
+                    <div class="participant-name">${escapeHTML(p.name)}</div>
+                    <div class="participant-status">${icon} ${statusText}</div>
+                  </div>
+                  ${confirmBtn}
+                </div>`;
+                }).join('');
+            }
+
+            function updateProgress(participants) {
+                const entries = Object.values(participants);
+                const total = entries.length;
+                const confirmed = entries.filter(p => p.status === 'confirmed').length;
+                const pct = total > 0 ? Math.round((confirmed / total) * 100) : 0;
+                document.getElementById('progressFill').style.width = pct + '%';
+                document.getElementById('progressText').textContent = `${confirmed} / ${total}`;
+            }
+
+            function updateVotingDisplay(participants) {
+                const entries = Object.values(participants);
+                const votersA = entries.filter(p => p.vote === 'A');
+                const votersB = entries.filter(p => p.vote === 'B');
+                document.getElementById('voteCountA').textContent = `${votersA.length} vote${votersA.length !== 1 ? 's' : ''}`;
+                document.getElementById('voteCountB').textContent = `${votersB.length} vote${votersB.length !== 1 ? 's' : ''}`;
+                document.getElementById('votersA').textContent = votersA.length > 0 ? votersA.map(p => p.name).join(', ') :
+                    '—';
+                document.getElementById('votersB').textContent = votersB.length > 0 ? votersB.map(p => p.name).join(', ') :
+                    '—';
+
+                // Highlight cards
+                const cardA = document.getElementById('voteCardA');
+                const cardB = document.getElementById('voteCardB');
+                cardA.classList.remove('selected-a');
+                cardB.classList.remove('selected-b');
+                if (votersA.length > votersB.length) cardA.classList.add('selected-a');
+                if (votersB.length > votersA.length) cardB.classList.add('selected-b');
+            }
+
+            function updateAdminPanel(data) {
+                document.getElementById('adminPanel').textContent = JSON.stringify(data, null, 2);
+            }
+
+            function populateVoterSelect(participants) {
+                const select = document.getElementById('voterSelect');
+                const currentVal = select.value;
+                select.innerHTML = '<option value="">— Pilih nama —</option>' +
+                    Object.values(participants).map(p =>
+                        `<option value="${p.id}">${escapeHTML(p.name)} (${p.status})</option>`
+                    ).join('');
+                if ([...select.options].some(o => o.value === currentVal)) {
+                    select.value = currentVal;
+                }
+            }
+
+            // ==================== ACTIONS ====================
+            window.confirmParticipant = function(pid) {
+                updateParticipant(pid, { status: 'confirmed' });
+                showToast('✅ Participant confirmed! Welcome aboard! 🎉');
+            };
+
+            window.castVote = function(option) {
+                const select = document.getElementById('voterSelect');
+                const pid = select.value;
+                const label = option === 'A' ? 'Itinerary 1' : 'Itinerary 2';
+                if (!pid) {
+                    showToast('⚠️ Please select your name first!');
+                    return;
+                }
+                const participant = appData?.participants?.[pid];
+                if (!participant) return;
+                if (participant.vote === option) {
+                    showToast('ℹ️ You already picked ' + label + '!');
+                    return;
+                }
+                updateParticipant(pid, { vote: option });
+                showToast('🗳️ Choice saved for ' + label + '! 🌟');
+            };
+
+            window.resetAllData = function() {
+                if (confirm('Reset all data to default? This cannot be undone.')) {
+                    const fresh = JSON.parse(JSON.stringify(defaultData));
+                    if (firebaseReady && db) {
+                        db.ref(DB_PATH).set(fresh).then(() => {
+                            showToast('🔄 Data reset on Firebase!');
+                        }).catch(() => {
+                            saveLocalData(fresh);
+                            showToast('🔄 Data reset locally!');
+                        });
+                    } else {
+                        saveLocalData(fresh);
+                        showToast('🔄 Data reset!');
+                    }
+                }
+            };
+
+            // ==================== TOAST ====================
+            function showToast(message) {
+                const container = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
+                container.appendChild(toast);
+                setTimeout(() => {
+                    if (toast.parentNode) toast.remove();
+                }, 2600);
+            }
+
+            // ==================== COUNTDOWN ====================
+            function updateCountdown() {
+                const target = new Date('2026-07-03T04:00:00+08:00').getTime(); // 3 July 2026, 4AM MYT
+                const now = Date.now();
+                const diff = target - now;
+                if (diff <= 0) {
+                    document.getElementById('cd-days').textContent = '00';
+                    document.getElementById('cd-hours').textContent = '00';
+                    document.getElementById('cd-mins').textContent = '00';
+                    document.getElementById('cd-secs').textContent = '00';
+                    return;
+                }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const mins = Math.floor((diff / (1000 * 60)) % 60);
+                const secs = Math.floor((diff / 1000) % 60);
+                document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+                document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+            }
+
+            // ==================== THEME ====================
+            function initTheme() {
+                const saved = localStorage.getItem('redangTheme');
+                if (saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+                document.getElementById('themeToggle').addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme');
+                    const next = current === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', next);
+                    localStorage.setItem('redangTheme', next);
+                    showToast(next === 'dark' ? '🌙 Dark mode on!' : '☀️ Light mode on!');
+                });
+            }
+
+            // ==================== MOBILE NAV ====================
+            function initMobileNav() {
+                const hamburger = document.getElementById('hamburgerBtn');
+                const navLinks = document.getElementById('navLinks');
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('open');
+                });
+                // Close nav when a link is clicked
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('open');
+                    });
+                });
+            }
+
+            // ==================== UTILS ====================
+            function escapeHTML(str) {
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            // ==================== INIT ====================
+            function init() {
+                initTheme();
+                initMobileNav();
+
+                // Load data and render
+                getData((data) => {
+                    refreshUI(data);
+                });
+
+                // Listen for real-time changes
+                listenForChanges((data) => {
+                    refreshUI(data);
+                });
+
+                // Countdown
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+
+                console.log('🏝️ Redang Trip 2026 website initialized!');
+                console.log('🔥 Firebase:', firebaseReady ? 'Connected' : 'Using localStorage');
+            }
+
+            // Start everything when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+</body>
+</html>
